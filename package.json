@@ -1,11 +1,14 @@
 {
   "name": "framework-for-automation-integration-testing-petstore",
   "version": "1.0.0",
-  "description": "",
+  "description": "develop framework for automation testing API petstore with TypeScript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["testing", "framework", "automation", "mocha", "integration"],
+  "author": "Sasha Shulha (sashamiller666@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.3.2"
+  }
 }
