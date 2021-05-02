@@ -7,8 +7,8 @@ describe('User can', function () {
 
     it('receive pet by his id', async function () {
 
-        const body = await pet.getById(9222968140498401472);
-        assert(body.id == 9222968140498401472);
+        const body = await pet.getById(9222968140498401953);
+        assert(body.id == 9222968140498401953);
 
     });
 
@@ -63,13 +63,13 @@ describe('User can', function () {
         assert.deepEqual(addedPet, {
             ...petToCreate,
             id: addedPet.id
-        }, 'first ASAAAAAAAP');
+        });
 
         const foundAddPet = await pet.getById(addedPet.id);
         assert.deepEqual(foundAddPet, {
             ...petToCreate,
             id: addedPet.id
-        }, 'SECOND ASAAAAAAAP');
+        });
 
         const newerPet = {
             id: addedPet.id,
@@ -91,7 +91,7 @@ describe('User can', function () {
         };
 
         const updatePet = await pet.update(newerPet);
-        assert.deepEqual(updatePet, newerPet, 'THIIRD ASAAAAAAAP');
+        assert.deepEqual(updatePet, newerPet);
 
         // TODO: assert 404 error
         await pet.delete(addedPet.id);

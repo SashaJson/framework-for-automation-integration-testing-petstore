@@ -4,7 +4,7 @@ import got from 'got';
 export class JsonRequest {
 
     protected options: any = {
-        requestType: 'json'
+        responseType: 'json'
     }
 
     public url(url: string | URL): this {

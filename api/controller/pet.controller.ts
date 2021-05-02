@@ -1,25 +1,32 @@
-import got from 'got'
 import {URLSearchParams} from 'url';
+import {JsonRequest} from '../request';
 
 export class PetController {
 
     async getById(id: number | string) {
-        const response = await got(`https://petstore.swagger.io/v2/pet/${id}`);
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url(`https://petstore.swagger.io/v2/pet/${id}`)
+                .send()
+        ).body
     }
 
     async findByTags(tags: string | string[]) {
-        const response = await got('https://petstore.swagger.io/v2/pet/findByTags', {
-            searchParams: new URLSearchParams({tags})
-        });
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url('https://petstore.swagger.io/v2/pet/findByTags')
+                .searchParams(new URLSearchParams({tags}))
+                .send()
+        ).body
     }
 
     async findByStatus(status: string | string[]) {
-        const response = await got('https://petstore.swagger.io/v2/pet/findByStatus', {
-            searchParams: new URLSearchParams({status})
-        });
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url('https://petstore.swagger.io/v2/pet/findByStatus')
+                .searchParams(new URLSearchParams({status}))
+                .send()
+        ).body
     }
 
     async addNew(pet: {
@@ -35,18 +42,22 @@ export class PetController {
         }[],
         status: string,
     }) {
-        const response = await got('https://petstore.swagger.io/v2/pet/', {
-            method: 'POST',
-            json: pet
-        });
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url('https://petstore.swagger.io/v2/pet/')
+                .method('POST')
+                .body(pet)
+                .send()
+        ).body
     }
 
     async delete(id: number | string) {
-        const response = await got(`https://petstore.swagger.io/v2/pet/${id}`, {
-            method: 'DELETE'
-        });
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url(`https://petstore.swagger.io/v2/pet/${id}`)
+                .method('DELETE')
+                .send()
+        ).body
     }
 
     async update(pet: {
@@ -63,11 +74,13 @@ export class PetController {
         }[],
         status: string,
     }) {
-        const response = await got('https://petstore.swagger.io/v2/pet/', {
-            method: 'PUT',
-            json: pet
-        });
-        return JSON.parse(response.body);
+        return (
+            await new JsonRequest()
+                .url('https://petstore.swagger.io/v2/pet/')
+                .method('PUT')
+                .body(pet)
+                .send()
+        ).body
     }
 
 }
