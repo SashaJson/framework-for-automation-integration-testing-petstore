@@ -1,5 +1,6 @@
 import {strict as assert} from 'assert';
 import {PetController} from '../api/controller/pet.controller';
+import {definitions} from '../.temp/types';
 
 const pet = new PetController(); // TODO ADD API CLIENT
 
@@ -41,7 +42,7 @@ describe('User can', function () {
 
     it('can be added, updated and deleted', async function () {
 
-        const petToCreate = {
+        const petToCreate: Omit<definitions['Pet'], 'id'> = {
             "category": {
                 "id": 0,
                 "name": "string"
@@ -71,7 +72,7 @@ describe('User can', function () {
             id: addedPet.id
         });
 
-        const newerPet = {
+        const newerPet: definitions['Pet'] = {
             id: addedPet.id,
             category: {
                 id: 1,

@@ -1,5 +1,6 @@
 import {URLSearchParams} from 'url';
 import {JsonRequest} from '../request';
+import {definitions} from '../../.temp/types';
 
 export class PetController {
 
@@ -29,19 +30,7 @@ export class PetController {
         ).body
     }
 
-    async addNew(pet: {
-        category: {
-            id: number,
-            name: string
-        },
-        name: string,
-        photoUrls: string[],
-        tags: {
-            id: number,
-            name: string,
-        }[],
-        status: string,
-    }) {
+    async addNew(pet: Omit<definitions['Pet'], 'id'>) {
         return (
             await new JsonRequest()
                 .url('https://petstore.swagger.io/v2/pet/')
@@ -60,20 +49,7 @@ export class PetController {
         ).body
     }
 
-    async update(pet: {
-        id: number,
-        category: {
-            id: number,
-            name: string
-        },
-        name: string,
-        photoUrls: string[],
-        tags: {
-            id: number,
-            name: string,
-        }[],
-        status: string,
-    }) {
+    async update(pet: definitions['Pet']) {
         return (
             await new JsonRequest()
                 .url('https://petstore.swagger.io/v2/pet/')
