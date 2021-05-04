@@ -26,9 +26,9 @@ describe('User can', function () {
 
         body = await pet.findByStatus(['pending', 'available']);
         assert(body.length > 0);
-        assert(body.some((pet: any) => pet.status == 'available'));
-        assert(body.some((pet: any) => pet.status == 'pending'));
-        assert(!body.some((pet: any) => pet.status == 'sold'));
+        assert(body.some(pet => pet.status == 'available'));
+        assert(body.some(pet => pet.status == 'pending'));
+        assert(!body.some(pet => pet.status == 'sold'));
 
     });
 
@@ -36,7 +36,7 @@ describe('User can', function () {
 
         const body = await pet.findByTags('string');
         assert(body.length > 0);
-        assert(body.every((pet: any) => pet.tags.some((tag: any) => tag.name == 'string')));
+        assert(body.every(pet => pet.tags.some(tag => tag.name == 'string')));
 
     });
 
