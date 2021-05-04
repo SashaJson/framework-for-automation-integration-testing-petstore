@@ -8,8 +8,8 @@ describe('User can', function () {
 
     it('receive pet by his id', async function () {
 
-        const body = await pet.getById(9222968140498401953);
-        assert(body.id == 9222968140498401953);
+        const body = await pet.getById(1);
+        assert(body.id == 1);
 
     });
 
@@ -34,9 +34,9 @@ describe('User can', function () {
 
     it('can be received by tag', async function () {
 
-        const body = await pet.findByTags('string');
+        const body = await pet.findByTags('tag1');
         assert(body.length > 0);
-        assert(body.every(pet => pet.tags.some(tag => tag.name == 'string')));
+        assert(body.every(pet => pet.tags.some(tag => tag.name == 'tag1')));
 
     });
 
