@@ -17,6 +17,7 @@
   "author": "Sasha Shulha (sashamiller666@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "@apidevtools/swagger-parser": "^10.0.2",
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.0.1",
     "ajv": "^8.2.0",
