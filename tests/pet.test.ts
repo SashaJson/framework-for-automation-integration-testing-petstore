@@ -4,9 +4,9 @@ import {definitions} from '../.temp/types';
 
 const pet = new PetController(); // TODO ADD API CLIENT
 
-describe('User can', function () {
+describe('Pet', function () {
 
-    it('receive pet by his id', async function () {
+    it('can be received by his id', async function () {
 
         const body = await pet.getById(1);
         assert(body.id == 1);
