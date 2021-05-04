@@ -1,15 +1,27 @@
 import {URLSearchParams} from 'url';
 import {JsonRequest} from '../request';
 import {definitions, operations} from '../../.temp/types';
+import {validate} from '../validator';
 
 export class PetController {
 
     async getById(id: number | string) {
-        return (
+        const body = (
             await new JsonRequest()
                 .url(`http://93.126.97.71:10080/api/pet/${id}`)
                 .send<operations['getPetById']['responses']['200']['schema']>()
-        ).body
+        ).body;
+        const schema = {
+            "$schema": "http://json-schema.org/draft-07/schema",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        };
+        validate(schema, body);
+        return body;
     }
 
     async findByTags(tags: string | string[]) {
