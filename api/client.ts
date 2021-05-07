@@ -28,7 +28,7 @@ export class ApiClient {
 
     static async loginAs(credentials: { username: string, password: string }) {
         return new ApiClient({
-           token: await ApiClient.unauthorized().user.login(credentials);
+           token: await ApiClient.unauthorized().user.login(credentials)
         });
     }
 
