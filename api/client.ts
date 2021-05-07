@@ -1,5 +1,6 @@
 import { PetController } from './controller/pet.controller';
 import { StoreController } from './controller/store.controller';
+import { UserController } from './controller/user.controller';
 import { CookieJar } from 'tough-cookie';
 
 export class ApiClient {
