@@ -7,6 +7,7 @@ export class UserController extends BaseController {
         return (
             await new JsonRequest()
                 .url('http://93.126.97.71:10080/api/user/login')
+                .headers({ token: this.params.token })
                 .searchParams(credentials)
                 .send<operations['loginUser']['responses']['200']['schema']>()
         ).headers['token'] as string
