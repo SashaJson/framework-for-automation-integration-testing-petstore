@@ -2,10 +2,11 @@ import { URLSearchParams } from 'url';
 import { JsonRequest } from '../request';
 import { definitions, operations } from '../../.temp/types';
 import { validate, loadAPISpec } from '../validator';
+import { BaseController } from './base.controller';
 
 // TODO ADD TO ALL METHOD VALIDATE JSON-SCHEMA
 
-export class PetController {
+export class PetController extends BaseController {
 
     async getById(id: number | string) {
         const body = (
