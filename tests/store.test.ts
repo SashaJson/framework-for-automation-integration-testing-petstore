@@ -1,7 +1,7 @@
-import {strict as assert} from 'assert';
-import {PetController} from '../api/controller/pet.controller';
-import {StoreController} from '../api/controller/store.controller';
-import {definitions} from '../.temp/types';
+import { strict as assert } from 'assert';
+import { PetController } from '../api/controller/pet.controller';
+import { StoreController } from '../api/controller/store.controller';
+import { definitions } from '../.temp/types';
 
 const pet = new PetController();
 const store = new StoreController();
