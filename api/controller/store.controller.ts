@@ -1,5 +1,5 @@
-import {JsonRequest} from '../request';
-import {operations} from '../../.temp/types';
+import { JsonRequest } from '../request';
+import { operations } from '../../.temp/types';
 
 // TODO ADD TO METHOD VALIDATE JSON-SCHEMA
 
