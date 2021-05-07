@@ -22,4 +22,14 @@ export class ApiClient {
         this.user = new UserController(mergeParams);
     }
 
+    static unauthorized() {
+        return new ApiClient();
+    }
+
+    static async loginAs(credentials: { username: string, password: string }) {
+        return new ApiClient({
+           token: await ApiClient.unauthorized().user.login(credentials);
+        });
+    }
+
 }
