@@ -24,6 +24,22 @@ describe('Store', function () {
         assert.equal(inventoryWithPendingAdded.available, inventory.available + 1);
     });
 
+    it('allows to place order by user, and admin can see created order', async function () {
+
+        const userClient = await ApiClient.loginAs({ username: 'user', password: 'user' });
+
+        const order = {
+          petId: 1,
+          quantity: 1,
+            shipDate: new Date().toISOString()
+        };
+
+        const placeOrder = await userClient.store.placeOrder(order);
+        const adminClient = await ApiClient.loginAs({ username: 'admin', password: 'admin' });
+        await adminClient.store.getOrderById(placeOrder.id);
+
+    });
+
 });
 
 function petWithStatus(status: definitions['Pet']['status']) {
