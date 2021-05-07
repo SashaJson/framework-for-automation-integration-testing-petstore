@@ -1,6 +1,6 @@
-import {strict as assert} from 'assert';
-import {PetController} from '../api/controller/pet.controller';
-import {definitions} from '../.temp/types';
+import { strict as assert } from 'assert';
+import { PetController } from '../api/controller/pet.controller';
+import { definitions } from '../.temp/types';
 
 const pet = new PetController(); // TODO ADD API CLIENT
 
