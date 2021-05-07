@@ -1,7 +1,7 @@
-import {URLSearchParams} from 'url';
-import {JsonRequest} from '../request';
-import {definitions, operations} from '../../.temp/types';
-import {validate, loadAPISpec} from '../validator';
+import { URLSearchParams } from 'url';
+import { JsonRequest } from '../request';
+import { definitions, operations } from '../../.temp/types';
+import { validate, loadAPISpec } from '../validator';
 
 // TODO ADD TO ALL METHOD VALIDATE JSON-SCHEMA
 
