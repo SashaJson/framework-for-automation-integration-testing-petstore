@@ -6,8 +6,10 @@ export class UserController extends BaseController {
     async login(credentials: { username: string, password: string }): Promise<string> {
         return (
             await new JsonRequest()
-                .url('http://93.126.97.71:10080/api/user/login')
-                .headers({ token: this.params.token })
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
+                .url('/user/login')
                 .searchParams(credentials)
                 .send<operations['loginUser']['responses']['200']['schema']>()
         ).headers['token'] as string

@@ -9,8 +9,10 @@ export class StoreController extends BaseController {
     async getOrderById(id: number | string) {
         return (
             await new JsonRequest()
-                .url(`http://93.126.97.71:10080/api/store/order/${id}`)
-                .headers({ token: this.params.token })
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
+                .url(`/store/order/${id}`)
                 .send<operations['getOrderById']['responses']['200']['schema']>()
         )
     }
@@ -18,8 +20,10 @@ export class StoreController extends BaseController {
     async placeOrder(order: Omit<definitions['Order'], 'id'>) {
         return (
             await new JsonRequest()
-                .url('http://93.126.97.71:10080/api/store/order')
-                .headers({ token: this.params.token })
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
+                .url('/store/order')
                 .method('POST')
                 .body(order)
                 .send<Required<operations['placeOrder']['responses']['200']['schema']>>()
@@ -29,8 +33,10 @@ export class StoreController extends BaseController {
     async getInventory() {
         return (
             await new JsonRequest()
-                .url('http://93.126.97.71:10080/api/store/inventory')
-                .headers({ token: this.params.token })
+                .prefixUrl(new URL(this.options.prefixPath, this.options.prefixUrl))
+                .headers({ token: this.options.token })
+                .cookieJar(this.options.cookieJar)
+                .url('store/inventory')
                 .send<operations['getInventory']['responses']['200']['schema']>()
         ).body
     }
