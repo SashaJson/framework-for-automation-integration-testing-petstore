@@ -1,2 +1,4 @@
 # do not commit generated types
 .temp/
+
+.env
