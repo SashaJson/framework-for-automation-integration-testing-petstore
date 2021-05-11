@@ -8,6 +8,11 @@ export class JsonRequest {
         responseType: 'json'
     }
 
+    public prefixUrl(url: string | URL): this {
+        this.options.prefixUrl = url
+        return this
+    }
+
     public url(url: string | URL): this {
         this.options.url = url;
         return this;
