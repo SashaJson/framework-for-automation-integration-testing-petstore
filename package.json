@@ -22,6 +22,8 @@
     "@types/node": "^15.0.1",
     "@types/tough-cookie": "^4.0.0",
     "ajv": "^8.2.0",
+    "dotenv": "^9.0.2",
+    "envalid": "^7.1.0",
     "got": "^11.8.2",
     "mocha": "^8.3.2",
     "openapi-typescript": "^3.2.3",
