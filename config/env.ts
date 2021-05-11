@@ -1,4 +1,4 @@
-import {cleanEnv, str, url} from 'envalid';
+import { cleanEnv, str, url } from 'envalid';
 
 export const CONFIG = cleanEnv(process.env, {
     PETSTORE_URL: url({
