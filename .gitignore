@@ -1,3 +1,5 @@
+allure-results/
+
 # do not commit generated types
 .temp/
 
