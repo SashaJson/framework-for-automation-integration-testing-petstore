@@ -1,9 +1,9 @@
 import { PetController } from './controller/pet.controller';
 import { StoreController } from './controller/store.controller';
 import { UserController } from './controller/user.controller';
-import {ControllerOptions} from './controller/base.controller';
+import { ControllerOptions } from './controller/base.controller';
 import { CookieJar } from 'tough-cookie';
-import {CONFIG} from '../config/env';
+import { CONFIG } from '../config/env';
 
 export class ApiClient {
     public readonly pet: PetController;
