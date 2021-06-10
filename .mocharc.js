@@ -5,5 +5,7 @@ module.exports = {
     ],
     spec: './tests/**/*.test.ts',
     slow: 50000,
-    timeout: 60000
+    timeout: 60000,
+    reposter: 'mocha-multi-reposters',
+    reporterOptions: ['configFile=reposterConfig.json']
 }
